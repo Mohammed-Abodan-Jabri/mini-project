@@ -1,15 +1,5 @@
-<?php 
-require_once( 'core/database.php' );
 
-$db_server = 'localhost';
-$db_user = 'root';
-$db_user_pass = '';
-$db_name = 'doctorak';
-$connection = db_connect( $db_server, $db_user, $db_user_pass, $db_name );
 
-$data = db_select( $connection, 'clinics' );
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +19,8 @@ $data = db_select( $connection, 'clinics' );
 
 <body >
     <!-- header -->
-  <?php require('./layout/header.php'); ?>
-   
+    <?php require('./layout/header.php'); ?>
+  
     <!--  end header-->
 
       <!-- ======= Hero Section ======= -->
@@ -47,42 +37,22 @@ $data = db_select( $connection, 'clinics' );
     <div class="container">
 
       <div class="section-title">
-        <h2>اضــف معاومات الدكتور</h2>
+        <h2>اضــف تفاصيل العيادة</h2>
       </div>
-      <form action="app.php" method="POST" enctype="multipart/form-data">
+      <form action="app.php" method="post" enctype="multipart/form-data">
        <div class="row">
-        <input type="hidden" value="create" name="Doctors">
+        <input type="hidden" value="create" name="clinics">
         <div class="col-md-6 form-group mt-3 mt-md-0">
-          <input type="text" class="form-control" name="doctorName"  placeholder="اسم الدكتور"  >
+          <input type="text" class="form-control" name="clinicName"  placeholder="اسم العيادة"  >
         </div>
         <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="file" class="form-control" name="path"  >
-          </div>
+          <input type="file" class="form-control" name="path"  >
+        </div>
        </div>
-       <div class="row mt-5">
-       <div class="col-md-6 form-group mt-3 mt-md-0">
-            <select name="dept" class="form-select">
-                <option value="">اختر العيادة ... </option>
-                <?php
-                foreach ($data as $row) {
-                   echo '<option value="'. $row["name"] . '">' . $row["name"] . '</option>';
-               }
-               ?>
-
-            </select>
-          </div>
-
-          <div class="col-md-6 form-group">
-            <select name="hospital" id="doctor" class="form-select">
-              <option value="">اختر اسم المستشفاء</option>
-              <option value="البرج">البرج</option>
-              <option value="حضرموت">حضرموت</option>
-              <option value="ابن سيناء">ابن سيناء</option>
-            </select>
-            <div class="validate"></div>
-          </div>
-
-       </div>
+       <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="تفاصيل اكثر"></textarea>
+        <div class="validate"></div>
+      </div>
        <button type="submit" class="btn btn-primary"> ارسال</button>
       </form>
 
@@ -90,8 +60,6 @@ $data = db_select( $connection, 'clinics' );
   </section><!-- End Appointment Section --> 
 
        
-       
-
      
 
       

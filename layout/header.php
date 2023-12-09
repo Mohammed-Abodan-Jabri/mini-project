@@ -1,28 +1,9 @@
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- -->
-    <title>Doctor</title>
-    <!-- -->
-    <!-- our project just needs Font Awesome Solid + Brands -->
-    <link href="mystyle.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.css">
-    <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/fontawesome.css" rel="stylesheet">
-    <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/brands.css" rel="stylesheet">
-    <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/solid.css" rel="stylesheet">
-    <!-- -->
-</head>
-
-<body >
-    <!-- header -->
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg bg-whie nnnnnn ">
             <div class="container-fluid">
-                <div class="navbar-brand d-flex  align-items-center "> 
+                <div class="navbar-brand d-flex  align-items-center  ">
+                    
                         <img class="main-image" src="assets/images/logo_1.png" width="75" height="75" alt="logo">
                     <div class="search-box d-flex me-3">
                         <button name="" type="submit"> <i class="fa fa-search"></i></button>
@@ -37,7 +18,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
                         <li>
-                            <a class="link" href="index.html">
+                            <a class="link" href="index.php">
                                 <i class="fa fa-home"></i>
                                 الرئيسية
                             </a>
@@ -55,12 +36,13 @@
                             </a>
                         </li>
                         <li>
-                            <a class="link" href="./addClinics.html">
+                            <a class="link" href="./addClinics.php">
                                 <i class="fa fa-add"></i>
                                 اضافة عيادة
                                 
                             </a>
                         </li>
+                       
                         <li>
                             <a class="link" href="./addDoctors.php">
                                 <i class="fa-solid fa-stethoscope"></i>
@@ -73,7 +55,6 @@
                                 مـواعـيد
                             </a>
                         </li>
-                       
 
                     </ul>
                     <form class="d-flex flex-wrap">
@@ -85,61 +66,3 @@
             </div>
         </nav>
     </header>
-    <!--  end header-->
-
-      <!-- ======= Hero Section ======= -->
-
-
-<!-- End Hero -->
-
-    <!-- main -->
-    <main class="main-container mt-5">
-       
-    
-  <!-- ======= Add Clinics ======= -->
-  <section id="appointment" class="appointment section-bg">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>اضــف تفاصيل العيادة</h2>
-      </div>
-      <form action="app.php" method="post" enctype="multipart/form-data">
-       <div class="row">
-        <input type="hidden" value="create" name="clinics">
-        <div class="col-md-6 form-group mt-3 mt-md-0">
-          <input type="text" class="form-control" name="clinicName"  placeholder="اسم العيادة"  >
-        </div>
-        <div class="col-md-6 form-group mt-3 mt-md-0">
-          <input type="file" class="form-control" name="path"  >
-        </div>
-       </div>
-       <div class="form-group mt-3">
-        <textarea class="form-control" name="message" rows="5" placeholder="تفاصيل اكثر"></textarea>
-        <div class="validate"></div>
-      </div>
-       <button type="submit" class="btn btn-primary"> ارسال</button>
-      </form>
-
-    </div>
-  </section><!-- End Appointment Section --> 
-
-       
-     
-
-      
-        
-    </main>
-   
-
-    <footer class="footer">
-        <p>  جميع الحقوق محفوظة  <i id="copyright" class="fa far fa-copyright"></i>دكتوري 2023</p>
-      
-   </footer>
-
-
-</body>
-<script src="./jquery-3.7.1.min.js"></script>
-<script src="./bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
-</html>
