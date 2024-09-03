@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- -->
-    <title>Doctor</title>
+    <title>Doctorak</title>
     <!-- -->
     <!-- our project just needs Font Awesome Solid + Brands -->
-    <link href="mystyle.css" rel="stylesheet">
+    <link href="assets/css/mystyle.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.css">
-    <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/fontawesome.css" rel="stylesheet">
-    <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/brands.css" rel="stylesheet">
-    <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/solid.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free-6.4.2-web/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free-6.4.2-web/css/solid.css" rel="stylesheet">
+<!--    <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/solid.css" rel="stylesheet">-->
     <!-- -->
 </head>
-
 <body>
-
     <!-- header -->
-
     
   <?php require('./layout/header.php'); ?>
     <!--  end header-->
-
       <!-- ======= Hero Section ======= -->
-
 
 <!-- End Hero -->
     <!-- main -->
@@ -114,9 +108,6 @@
       <!-- End Featured Services Section -->
         <!-- Departments? -->
     </main>
-   
-
-  
 
   <!-- footer -->
 
@@ -126,6 +117,4 @@
 
 <script src="./jquery-3.7.1.min.js"></script>
 <script src="./bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </html>

@@ -1,6 +1,7 @@
 <?php
 
-function db_connect($servername, $username, $password, $dbname){
+function db_connect($servername, $username, $password, $dbname)
+{
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -12,11 +13,11 @@ function db_connect($servername, $username, $password, $dbname){
     return $conn;
 }
 
-function db_close($conn){
-
-    try{
+function db_close($conn)
+{
+    try {
         mysqli_close($conn);
-    } catch(Exception $e){
+    } catch (Exception $e) {
         return array("status" => "error", "code" => 402, "message" => $e->getMessage());
     }
 }
@@ -29,7 +30,8 @@ function db_close($conn){
 //     }
 //     return $result;
 // }
-function db_execute_query($conn, $sql){
+function db_execute_query($conn, $sql)
+{
     try {
         $result = mysqli_query($conn, $sql);
         if (!$result) {
@@ -38,11 +40,12 @@ function db_execute_query($conn, $sql){
     } catch (Exception $e) {
         return array("status" => "error", "code" => 403, "message" => $e->getMessage());
     }
-    
+
     return $result;
 }
 
-function db_select($conn, $table, $columns = "*", $where = ""){
+function db_select($conn, $table, $columns = "*", $where = "")
+{
 
     if (is_array($columns)) {
         $columns = implode(", ", $columns);
@@ -53,14 +56,13 @@ function db_select($conn, $table, $columns = "*", $where = ""){
     if (is_array($where) && !empty($where)) {
         $whereClause = _buildWhereClause($conn, $where);
         $sql .= " WHERE $whereClause";
-    }
-    else if (!empty($where)) {
+    } else if (!empty($where)) {
         $sql .= " WHERE $where";
     }
 
-    try{
+    try {
         $result = db_execute_query($conn, $sql);
-    }catch(Exception $e){
+    } catch (Exception $e) {
         return array("status" => "error", "code" => 404, "message" => $e->getMessage());
     }
 
@@ -73,7 +75,8 @@ function db_select($conn, $table, $columns = "*", $where = ""){
     return $rows;
 }
 
-function db_insert($conn, $table, $data){
+function db_insert($conn, $table, $data)
+{
 
     $columns = implode(", ", array_keys($data));
     $values = "'" . implode("', '", array_values($data)) . "'";
@@ -83,13 +86,14 @@ function db_insert($conn, $table, $data){
     db_execute_query($conn, $sql);
 
     $result = mysqli_insert_id($conn);
-    if(!$result){
+    if (!$result) {
         return array("status" => "error", "code" => 405, "message" => mysqli_error($conn));
     }
     return $result;
 }
 
-function db_update($conn, $table, $data, $where){
+function db_update($conn, $table, $data, $where)
+{
 
     $set = "";
 
@@ -103,43 +107,44 @@ function db_update($conn, $table, $data, $where){
     if (is_array($where) && !empty($where)) {
         $whereClause = _buildWhereClause($conn, $where);
         $sql .= " WHERE $whereClause";
-    }
-    else if (!empty($where)) {
+    } else if (!empty($where)) {
         $sql .= " WHERE $where";
     }
 
-    try{
+    try {
         $result = db_execute_query($conn, $sql);
         return $result;
-    }catch(Exception $e){
+    } catch (Exception $e) {
         return array("status" => "error", "code" => 406, "message" => $e->getMessage());
     }
 }
 
-function db_delete($conn, $table, $where){
+function db_delete($conn, $table, $where)
+{
 
     $sql = "DELETE FROM $table";
     if (is_array($where) && !empty($where)) {
         $whereClause = _buildWhereClause($conn, $where);
         $sql .= " WHERE $whereClause";
-    }
-    else if (!empty($where)) {
+    } else if (!empty($where)) {
         $sql .= " WHERE $where";
     }
     $result = db_execute_query($conn, $sql);
 
-    if(!$result){
+    if (!$result) {
         return array("status" => "error", "code" => 407, "message" => mysqli_error($conn));
     }
 
     return $result;
 }
 
-function _escapeValue($conn, $value) {
+function _escapeValue($conn, $value)
+{
     return mysqli_real_escape_string($conn, $value);
 }
 
-function _buildWhereClause($conn, $where) {
+function _buildWhereClause($conn, $where)
+{
 
     $conditions = [];
 

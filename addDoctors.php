@@ -19,7 +19,7 @@ $data = db_select( $connection, 'clinics' );
     <title>Doctor</title>
     <!-- -->
     <!-- our project just needs Font Awesome Solid + Brands -->
-    <link href="mystyle.css" rel="stylesheet">
+    <link href="assets/css/mystyle.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.css">
     <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/fontawesome.css" rel="stylesheet">
     <link href="./assets/vendor/fontawesome-free-6.4.2-web/css/brands.css" rel="stylesheet">
@@ -47,7 +47,7 @@ $data = db_select( $connection, 'clinics' );
     <div class="container">
 
       <div class="section-title">
-        <h2>اضــف معاومات الدكتور</h2>
+        <h2>اضــف معلومات الدكتور</h2>
       </div>
       <form action="app.php" method="POST" enctype="multipart/form-data">
        <div class="row">
